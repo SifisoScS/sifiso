@@ -1,0 +1,647 @@
+# Master Prompt: Build Sifiso - The Heart of the Island (Web-Based Game)
+
+You are an expert game developer tasked with building "Sifiso: The Heart of the Island" - a web-based 2D adventure-strategy game where players control Sifiso, a wise savior protecting an island community through intelligence, courage, and compassion.
+
+## Project Overview
+
+**Game Concept:** Players navigate crises, build relationships with villagers, gather resources, and make critical decisions that affect the entire island community. The game combines exploration, dialogue, resource management, and crisis response mechanics.
+
+**Tech Stack:**
+- **Frontend Framework:** React
+- **Game Engine:** Phaser 3 for 2D rendering and game loop
+- **State Management:** Zustand with localStorage persistence
+- **Art Style:** 2D (pixel art or flat vector)
+- **Audio:** Howler.js for sound management
+
+## Core Game Systems to Implement
+
+### 1. State Management Architecture
+
+Create a comprehensive Zustand store that manages:
+
+**Player State (Sifiso):**
+- Health (0-100)
+- Stamina (0-100) - depletes with actions, regenerates over time
+- Knowledge Points - earned through learning and solving problems
+- Influence (0-100) - community trust level
+- Inventory system with items (resources, tools, medicinal plants)
+- Current position in the game world
+- Skills/abilities unlocked
+
+**Village Metrics:**
+- Population count
+- Overall happiness (0-100)
+- Food supply (units)
+- Health level (0-100)
+- Security level (0-100)
+- Cultural preservation score
+
+**Villager System:**
+- Array of 15-20 unique villagers
+- Each villager has:
+  - Name, role/profession, personality traits
+  - Relationship level with Sifiso (0-100)
+  - Current status (healthy, sick, happy, worried, etc.)
+  - Personal quest/problem
+  - Skills they can teach
+  - Dialogue trees based on relationship level
+
+**Time System:**
+- Day counter
+- Time of day (morning, afternoon, evening, night)
+- Automatic time advancement
+- Daily resource consumption cycles
+- Seasonal changes (if applicable)
+
+**Quest & Crisis System:**
+- Active main quest tracker
+- Side quest log
+- Active crisis (null or crisis object)
+- Crisis history and outcomes
+- Quest completion tracking
+
+**Actions to Implement:**
+- Update player stats
+- Add/remove inventory items
+- Update village metrics
+- Change villager relationships
+- Advance time
+- Trigger/resolve crises
+- Start/complete quests
+- Save/load game state
+- Daily resource consumption updates
+
+### 2. Phaser Game Scenes
+
+Build multiple interconnected Phaser scenes:
+
+**VillageScene (Main Hub):**
+- Explorable village area (800x600 viewport, larger world space)
+- Player character (Sifiso) with 8-directional movement or 4-directional
+- 5-8 interactive villagers positioned around the village
+- Buildings: chief's hut, healer's hut, storage area, fishing dock, farm
+- Interactive objects: resource gathering points, notice board
+- Collision detection with buildings and boundaries
+- Trigger zones for scene transitions
+- Day/night visual changes (lighting, colors)
+
+**ExplorationScene (Island Wilderness):**
+- Jungle, beach, and mountain areas
+- Resource gathering mechanics (click/interact to collect)
+- Wildlife encounters (friendly and potentially dangerous)
+- Hidden items and discovery points
+- Ancient ruins or sacred sites
+- Return-to-village transition points
+
+**CrisisScene (Special Crisis Events):**
+- Dedicated scene for major crisis moments
+- Visual representation of crisis (storm, fire, etc.)
+- Interactive response options
+- Countdown timer or urgency indicator
+- Outcome visualization
+
+**Scene Management:**
+- Smooth transitions between scenes
+- Maintain game state across scenes
+- Pause/resume functionality
+- Scene-specific UI overlays
+
+### 3. Player Character Implementation
+
+**Movement System:**
+- Smooth keyboard controls (WASD or Arrow keys)
+- Velocity-based movement with acceleration
+- Collision detection with world boundaries
+- Collision with buildings and obstacles
+- Sprite animations (idle, walking in 4 directions)
+- Speed modifications based on stamina
+
+**Interaction System:**
+- Proximity detection for interactive objects/NPCs
+- Visual indicator when near interactive elements
+- Interaction key (Space or E)
+- Action radius around player
+
+**Visual Feedback:**
+- Health/stamina visual indicators on character
+- Status effects (tired, inspired, hurt)
+- Inventory weight affects movement speed
+
+### 4. Villager AI & Interactions
+
+**Villager Behaviors:**
+- Idle animations and random movements in designated areas
+- Daily routines (fisherman goes to dock, farmer to fields)
+- Reaction to time of day
+- Reaction to village metrics (panic during crisis, celebrate when happy)
+- Gathering in central area for meetings/events
+
+**Dialogue System:**
+- Branching conversation trees
+- Dialogue options affected by:
+  - Relationship level
+  - Village state
+  - Active quests
+  - Time of day
+  - Recent events
+- Memory system (villagers remember past conversations)
+- Emotional states affect dialogue tone
+
+**Relationship Mechanics:**
+- Relationship XP gained through:
+  - Conversations
+  - Completing personal quests
+  - Helping during crises
+  - Gift-giving
+- Relationship levels unlock:
+  - New dialogue options
+  - Special quests
+  - Skills/knowledge sharing
+  - Support during decisions
+
+### 5. Crisis & Event System
+
+**Crisis Types to Implement:**
+
+**Natural Disasters:**
+- Storm/Hurricane
+  - Warning signs 1-2 days before
+  - Preparation options (reinforce buildings, store food, organize shelters)
+  - Impact severity based on preparation level
+  - Recovery phase with repair needs
+
+- Drought
+  - Gradual food/water supply decrease
+  - Need to find new water sources
+  - Implement rationing systems
+  - Research rain-catching solutions
+
+- Fire
+  - Sudden event requiring quick response
+  - Spread mechanics if not contained
+  - Resource loss potential
+  - Community coordination needed
+
+**Health Crises:**
+- Disease Outbreak
+  - Identify symptoms and source
+  - Quarantine decisions
+  - Gather medicinal plants
+  - Care for sick villagers
+  - Prevention measures for future
+
+- Food Poisoning
+  - Investigate contaminated source
+  - Treat affected villagers
+  - Implement food safety protocols
+
+**Social/Wildlife Challenges:**
+- Dangerous Animal Encounter
+  - Protect villagers
+  - Peaceful resolution vs. defensive action
+  - Long-term coexistence solutions
+
+- Community Conflict
+  - Mediate disputes
+  - Multiple viewpoints to consider
+  - Diplomatic resolution paths
+  - Impact on village harmony
+
+**Crisis Mechanics:**
+- Warning/detection phase
+- Preparation window (if applicable)
+- Active crisis phase with real-time or decision-based gameplay
+- Resolution and aftermath
+- Learning system (better prepared for future similar crises)
+- Impact on village metrics and villager relationships
+
+### 6. Resource & Crafting System
+
+**Resource Categories:**
+
+**Food Resources:**
+- Fish (from fishing)
+- Fruits (from gathering)
+- Vegetables (from farming)
+- Stored provisions
+
+**Building Materials:**
+- Wood (from trees)
+- Stone (from quarry)
+- Rope/Fiber (from plants)
+- Clay (from riverbank)
+
+**Medical Supplies:**
+- Healing herbs (various types)
+- Bandages
+- Medicinal mixtures (crafted)
+
+**Tools & Equipment:**
+- Fishing net
+- Farming tools
+- Building tools
+- Exploration gear
+
+**Gathering Mechanics:**
+- Resource nodes in exploration areas
+- Mini-games or skill checks for gathering
+- Tool requirements for some resources
+- Stamina cost for gathering
+- Resource regeneration over time
+
+**Crafting System:**
+- Recipe book that expands with knowledge
+- Combine resources to create items
+- Crafting stations (healer's hut, workshop, etc.)
+- Crafting time or instant creation
+- Quality variations based on skills
+
+### 7. Quest System Implementation
+
+**Main Story Quest Structure:**
+- 10-15 main quests forming narrative arc
+- Story progression unlocks new areas/features
+- Major decisions with lasting consequences
+- Revelation of island secrets and history
+- Multiple ending paths based on choices
+
+**Side Quests:**
+- 20-30 side quests from villagers
+- Personal stories and problems
+- Teaching/learning quests
+- Exploration/discovery quests
+- Timed and non-timed variants
+- Chain quests (one leads to another)
+
+**Quest Implementation:**
+- Quest log UI
+- Objective tracking
+- Quest markers/waypoints
+- Rewards (resources, knowledge, relationship, story)
+- Multiple solution paths when possible
+- Quest impact on village state
+
+### 8. Knowledge & Skill System
+
+**Knowledge Categories:**
+- Traditional Healing
+- Survival Skills
+- Engineering/Building
+- Diplomacy/Leadership
+- Island History/Culture
+- Agriculture
+- Navigation
+
+**Learning Methods:**
+- Learning from villagers (elder teachings)
+- Discovering ancient texts
+- Experiential learning (doing activities)
+- Crisis-driven learning
+- Exploration discoveries
+
+**Skill Trees:**
+- Unlock abilities and perks
+- Improve success rates in activities
+- Unlock crafting recipes
+- Enable new dialogue options
+- Improve efficiency (less stamina use, faster crafting)
+
+### 9. React UI Components
+
+**Essential UI Components to Build:**
+
+**GameHUD Component:**
+- Player health/stamina bars
+- Current influence level
+- Mini inventory display (quick items)
+- Village happiness indicator
+- Day/time display
+- Quest tracker (current objective)
+- Notification area for events
+- Responsive design overlaying Phaser canvas
+
+**DialogueBox Component:**
+- Character portrait/name
+- Role display
+- Animated text display
+- Dialogue choices (multiple buttons)
+- Relationship level indicator
+- Keyboard shortcuts (numbers for choices)
+- History/log of conversation
+- Close/advance controls
+
+**InventoryPanel Component:**
+- Grid or list view of items
+- Item icons and quantities
+- Item descriptions on hover
+- Categorized tabs (Food, Materials, Tools, Medical)
+- Use/Equip item functionality
+- Drop/discard items
+- Total weight/capacity indicator
+
+**QuestLog Component:**
+- Active quests list
+- Main quest vs side quests separation
+- Quest descriptions and objectives
+- Progress tracking
+- Reward preview
+- Completed quests archive
+
+**VillagerProfile Component:**
+- Villager portrait
+- Name, role, personality traits
+- Relationship level progress bar
+- Recent interaction history
+- Personal quest status
+- Known skills/knowledge
+- Mood/status indicator
+
+**CrisisAlert Component:**
+- Urgent visual styling
+- Crisis type and severity
+- Time until impact (if applicable)
+- Available preparation actions
+- Required resources for each action
+- Village readiness level
+- Decision buttons
+
+**KnowledgeBook Component:**
+- Learned skills and knowledge
+- Skill tree visualization
+- Progress toward next unlock
+- Recipes/crafting known
+- Island lore collected
+- Achievement tracking
+
+**SettingsMenu Component:**
+- Save/Load game
+- Audio volume controls
+- Keybinding display/configuration
+- Accessibility options
+- Return to main menu
+- Game version info
+
+### 10. Data Structure & Content
+
+**JSON Data Files to Create:**
+
+**villagers.json:**
+```
+Array of 15-20 villagers with:
+- id, name, role, age
+- personality traits (kind, cautious, brave, wise, etc.)
+- initial relationship level
+- home location coordinates
+- daily routine schedule
+- skills they can teach
+- personal quest hooks
+- favorite items/gifts
+- dialogue mood variations
+```
+
+**dialogue.json:**
+```
+Dialogue trees organized by:
+- Villager ID
+- Relationship level tiers
+- Context triggers (quest, crisis, time, village state)
+- Branching options with consequences
+- Personality-appropriate language
+- Cultural flavor (African names, references)
+```
+
+**quests.json:**
+```
+Quest definitions including:
+- Quest ID and type (main/side)
+- Title and description
+- Giver (villager or event)
+- Prerequisites
+- Objectives (structured with completion criteria)
+- Rewards (items, knowledge, relationship, story flags)
+- Success/failure conditions
+- Time limits (if applicable)
+- Multiple solution paths
+```
+
+**crises.json:**
+```
+Crisis definitions with:
+- Crisis ID and type
+- Trigger conditions or random occurrence
+- Warning signs and detection
+- Preparation phase (duration, actions available)
+- Impact calculations (prepared vs unprepared)
+- Required resources for mitigation
+- Aftermath effects on village metrics
+- Learning opportunities
+```
+
+**items.json:**
+```
+All game items:
+- ID, name, description
+- Category (food, material, tool, medical)
+- Rarity/value
+- Effects (healing, stamina restore, etc.)
+- Stackable or unique
+- Crafting recipes (if craftable)
+- Where to find/how to obtain
+```
+
+**knowledge.json:**
+```
+Knowledge and skills:
+- Skill ID and name
+- Category
+- Prerequisites
+- How to learn
+- Benefits/unlocks
+- XP required
+- Teacher (villager or source)
+```
+
+### 11. Audio Implementation
+
+**Sound Requirements:**
+
+**Music Tracks:**
+- Main village theme (peaceful, cultural)
+- Exploration music (adventurous)
+- Crisis music (tense, urgent)
+- Night time ambiance (calm)
+- Victory/celebration music
+- Sad/somber music (for loss)
+
+**Sound Effects:**
+- Footstep sounds (variable terrain)
+- UI interactions (clicks, hovers)
+- Dialogue text sounds
+- Resource gathering sounds
+- Crafting sounds
+- Crisis-specific effects (storm, fire)
+- Notification/alert sounds
+- Success/failure jingles
+
+**Audio System:**
+- Background music with crossfading
+- Ambient environmental sounds
+- Positional audio (if applicable)
+- Volume controls
+- Music/SFX separate control
+- Audio event triggering from game events
+
+### 12. Visual Polish & Effects
+
+**Visual Enhancements:**
+- Particle effects (rain, smoke, sparkles for discoveries)
+- Screen shake for impacts/urgency
+- Fade transitions between scenes
+- Flash/highlight for important interactions
+- Day/night color grading
+- Weather effects (rain, wind animation)
+- Emotional icons above villagers (!, ?, ♥)
+- Resource gathering animations
+- Crafting success animations
+
+**UI Polish:**
+- Smooth animations (slide-in, fade)
+- Hover effects on buttons
+- Progress bars with animations
+- Loading screens with tips
+- Tutorial tooltips
+- Achievement popups
+- Save confirmation feedback
+
+### 13. Tutorial & Onboarding
+
+**First-Time Player Experience:**
+- Brief story introduction (who is Sifiso, why on island)
+- Interactive movement tutorial
+- Guided first conversation
+- First resource gathering
+- First crafting experience
+- First crisis (small, manageable)
+- Gradual UI introduction
+- Context-sensitive help hints
+- Optional tutorial skip for experienced players
+
+### 14. Save System Implementation
+
+**Save Features:**
+- Auto-save at key moments (end of day, quest completion)
+- Manual save option
+- Multiple save slots (3-5)
+- Save metadata (day, playtime, village status)
+- Cloud save option (optional, using backend)
+- Export/import save files
+- Save corruption protection
+
+### 15. Performance Optimization
+
+**Optimization Strategies:**
+- Asset loading and preloading
+- Sprite atlases for efficient rendering
+- Object pooling for frequently created/destroyed objects
+- Efficient collision detection (spatial partitioning)
+- Throttle non-critical updates
+- Lazy loading for UI components
+- Code splitting for React components
+- Minimize re-renders (React.memo, useMemo)
+
+### 16. Accessibility Features
+
+**Accessibility Considerations:**
+- Keyboard-only controls
+- Screen reader compatibility labels
+- Color-blind friendly palette options
+- Text size adjustment
+- High contrast mode
+- Reduced motion option
+- Subtitles/dialogue text always visible
+- Clear visual indicators for interactions
+
+### 17. Testing Scenarios
+
+**Key Testing Areas:**
+- Complete main quest playthrough
+- All crisis types and resolutions
+- Relationship progression with all villagers
+- Resource gathering and crafting flows
+- Save/load functionality
+- Performance with extended playtime
+- Edge cases (zero resources, max stats, etc.)
+- UI responsiveness on different screen sizes
+- Cross-browser compatibility
+
+## Implementation Instructions
+
+**Start with the foundation:**
+1. Set up React project with all dependencies
+2. Create basic Zustand store with core state
+3. Implement simple Phaser scene with player movement
+4. Build basic DialogueBox component
+5. Connect Phaser events to React UI
+
+**Then build out systems incrementally:**
+1. Complete state management with all actions
+2. Implement all Phaser scenes with transitions
+3. Add villager interactions and dialogue
+4. Build crisis system
+5. Create resource and crafting mechanics
+6. Implement quest system
+7. Add all UI components
+8. Integrate audio
+9. Add visual polish
+10. Implement save system
+11. Create tutorial flow
+12. Optimize and test
+
+**Code Quality Standards:**
+- Well-commented code explaining logic
+- Modular, re-usable components
+- Consistent naming conventions
+- Error handling for user actions
+- Loading states for async operations
+- Responsive design principles
+- Clean separation of concerns (game logic vs UI)
+
+**Content Creation Guidelines:**
+- Culturally appropriate African names and references
+- Diverse villager personalities and perspectives
+- Meaningful choices with visible consequences
+- Balance between challenge and accessibility
+- Educational elements about survival and community
+- Positive themes of cooperation and wisdom
+
+## Deliverables
+
+Please provide:
+
+1. **Complete file structure** with all necessary files
+2. **Full implementation** of all systems described
+3. **Sample content data** (at least 5 villagers, 3 crises, 5 quests fully fleshed out)
+4. **Styling** (CSS) for all UI components
+5. **README.md** with:
+   - Setup instructions
+   - How to run the project
+   - Game controls
+   - Architecture overview
+   - Future enhancement ideas
+6. **Comments and documentation** throughout code
+7. **Initial game balance** (reasonable difficulty, pacing)
+
+## Creative Freedom
+
+While implementing the systems above, you have creative freedom to:
+- Design specific villager personalities and stories
+- Create unique crisis scenarios
+- Craft engaging quest narratives
+- Determine optimal resource balance
+- Design UI aesthetics (within 2D style)
+- Add small delightful details and Easter eggs
+- Improve upon mechanics with better ideas
+
+**Build a playable, engaging prototype that demonstrates the core loop: explore → interact → gather → help villagers → face crisis → learn → grow stronger.**
+
+Begin implementation now. Start with the foundational architecture and build toward a complete, playable experience.

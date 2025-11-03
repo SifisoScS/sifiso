@@ -1,0 +1,228 @@
+.inventory-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.inventory-panel {
+  background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+  border: 3px solid #3498db;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  overflow: hidden;
+}
+
+.inventory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+}
+
+.inventory-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #3498db;
+}
+
+.inventory-capacity {
+  font-size: 18px;
+  color: #ecf0f1;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 0, 0, 0.5);
+  border-color: #ff0000;
+}
+
+.inventory-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.inventory-category {
+  margin-bottom: 25px;
+}
+
+.category-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #3498db;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+}
+
+.category-icon {
+  font-size: 22px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.empty-category {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.inventory-item {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.inventory-item:hover {
+  border-color: #3498db;
+  background: rgba(52, 152, 219, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 15px;
+  flex: 1;
+}
+
+.item-quantity {
+  background: rgba(52, 152, 219, 0.5);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.item-description {
+  font-size: 13px;
+  color: #bdc3c7;
+  line-height: 1.4;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.use-btn {
+  background: linear-gradient(135deg, #27ae60, #229954);
+  color: #fff;
+}
+
+.use-btn:hover {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  transform: translateY(-1px);
+}
+
+.drop-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+}
+
+.drop-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  transform: translateY(-1px);
+}
+
+.empty-inventory {
+  text-align: center;
+  padding: 60px 20px;
+  color: #7f8c8d;
+}
+
+.empty-inventory p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.empty-inventory p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Scrollbar Styling */
+.inventory-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.inventory-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.inventory-content::-webkit-scrollbar-thumb {
+  background: rgba(52, 152, 219, 0.5);
+  border-radius: 10px;
+}
+
+.inventory-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 152, 219, 0.7);
+}

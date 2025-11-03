@@ -1,0 +1,165 @@
+[
+  {
+    "id": "herbs",
+    "name": "Healing Herbs",
+    "description": "Fresh medicinal herbs that can restore health.",
+    "category": "medical",
+    "rarity": "common",
+    "stackable": true,
+    "effects": {
+      "health": 15
+    },
+    "value": 10
+  },
+  {
+    "id": "bandage",
+    "name": "Bandage",
+    "description": "Clean cloth bandages for treating wounds.",
+    "category": "medical",
+    "rarity": "common",
+    "stackable": true,
+    "effects": {
+      "health": 10
+    },
+    "value": 5
+  },
+  {
+    "id": "fish",
+    "name": "Fresh Fish",
+    "description": "Freshly caught fish, a good source of food.",
+    "category": "food",
+    "rarity": "common",
+    "stackable": true,
+    "effects": {
+      "health": 10,
+      "stamina": 15
+    },
+    "value": 8
+  },
+  {
+    "id": "fruit",
+    "name": "Tropical Fruit",
+    "description": "Sweet and nutritious fruit from the island.",
+    "category": "food",
+    "rarity": "common",
+    "stackable": true,
+    "effects": {
+      "health": 5,
+      "stamina": 10
+    },
+    "value": 5
+  },
+  {
+    "id": "vegetables",
+    "name": "Fresh Vegetables",
+    "description": "Vegetables from the village farm.",
+    "category": "food",
+    "rarity": "common",
+    "stackable": true,
+    "effects": {
+      "health": 8,
+      "stamina": 12
+    },
+    "value": 6
+  },
+  {
+    "id": "wood",
+    "name": "Wood",
+    "description": "Sturdy wood suitable for building and crafting.",
+    "category": "material",
+    "rarity": "common",
+    "stackable": true,
+    "value": 3
+  },
+  {
+    "id": "stone",
+    "name": "Stone",
+    "description": "Solid stone for construction projects.",
+    "category": "material",
+    "rarity": "common",
+    "stackable": true,
+    "value": 3
+  },
+  {
+    "id": "rope",
+    "name": "Rope",
+    "description": "Strong rope made from plant fibers.",
+    "category": "material",
+    "rarity": "common",
+    "stackable": true,
+    "value": 4
+  },
+  {
+    "id": "clay",
+    "name": "Clay",
+    "description": "Moldable clay from the riverbank.",
+    "category": "material",
+    "rarity": "common",
+    "stackable": true,
+    "value": 2
+  },
+  {
+    "id": "fishing_net",
+    "name": "Fishing Net",
+    "description": "A well-crafted net for catching fish.",
+    "category": "tool",
+    "rarity": "uncommon",
+    "stackable": false,
+    "value": 25
+  },
+  {
+    "id": "farming_tools",
+    "name": "Farming Tools",
+    "description": "Essential tools for tending crops.",
+    "category": "tool",
+    "rarity": "uncommon",
+    "stackable": false,
+    "value": 30
+  },
+  {
+    "id": "building_tools",
+    "name": "Building Tools",
+    "description": "Tools needed for construction work.",
+    "category": "tool",
+    "rarity": "uncommon",
+    "stackable": false,
+    "value": 35
+  },
+  {
+    "id": "exploration_gear",
+    "name": "Exploration Gear",
+    "description": "Equipment for venturing into the wilderness.",
+    "category": "tool",
+    "rarity": "uncommon",
+    "stackable": false,
+    "value": 40
+  },
+  {
+    "id": "ancient_artifact",
+    "name": "Ancient Artifact",
+    "description": "A mysterious artifact from the island's past.",
+    "category": "quest",
+    "rarity": "rare",
+    "stackable": false,
+    "value": 100
+  },
+  {
+    "id": "herbal_medicine",
+    "name": "Herbal Medicine",
+    "description": "Expertly crafted medicine with powerful healing properties.",
+    "category": "medical",
+    "rarity": "uncommon",
+    "stackable": true,
+    "effects": {
+      "health": 30
+    },
+    "craftingRecipe": {
+      "ingredients": [
+        { "id": "herbs", "quantity": 3 },
+        { "id": "water", "quantity": 1 }
+      ],
+      "station": "healerHut"
+    },
+    "value": 35
+  }
+]

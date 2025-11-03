@@ -1,0 +1,102 @@
+[
+  {
+    "id": "villager_0",
+    "name": "Amara",
+    "role": "Village Elder",
+    "age": 68,
+    "personality": ["wise", "patient", "caring"],
+    "relationship": 60,
+    "status": "healthy",
+    "position": { "x": 300, "y": 200 },
+    "skills": ["traditional_healing", "island_history"],
+    "dailyRoutine": {
+      "morning": "chiefHut",
+      "afternoon": "villageCenter",
+      "evening": "chiefHut",
+      "night": "home"
+    },
+    "favoriteItems": ["herbs", "fruit"],
+    "questHook": "The Wisdom of Ancestors",
+    "description": "Amara has guided the village through many seasons. Her knowledge of the island's history and traditional ways is unmatched."
+  },
+  {
+    "id": "villager_1",
+    "name": "Kofi",
+    "role": "Fisherman",
+    "age": 35,
+    "personality": ["brave", "jovial", "hardworking"],
+    "relationship": 50,
+    "status": "healthy",
+    "position": { "x": 600, "y": 250 },
+    "skills": ["fishing", "navigation"],
+    "dailyRoutine": {
+      "morning": "fishingDock",
+      "afternoon": "fishingDock",
+      "evening": "villageCenter",
+      "night": "home"
+    },
+    "favoriteItems": ["fish", "rope"],
+    "questHook": "The Deep Waters",
+    "description": "Kofi knows the waters around the island better than anyone. His cheerful demeanor brightens even the stormiest days."
+  },
+  {
+    "id": "villager_2",
+    "name": "Nia",
+    "role": "Healer",
+    "age": 42,
+    "personality": ["compassionate", "knowledgeable", "gentle"],
+    "relationship": 55,
+    "status": "healthy",
+    "position": { "x": 900, "y": 200 },
+    "skills": ["healing", "herbalism"],
+    "dailyRoutine": {
+      "morning": "healerHut",
+      "afternoon": "healerHut",
+      "evening": "villageCenter",
+      "night": "home"
+    },
+    "favoriteItems": ["herbs", "bandages"],
+    "questHook": "Healing Herbs Crisis",
+    "description": "Nia's healing touch has saved many lives. She is always seeking new medicinal plants to help the village."
+  },
+  {
+    "id": "villager_3",
+    "name": "Jabari",
+    "role": "Farmer",
+    "age": 29,
+    "personality": ["optimistic", "dedicated", "practical"],
+    "relationship": 45,
+    "status": "healthy",
+    "position": { "x": 350, "y": 500 },
+    "skills": ["agriculture", "weather_prediction"],
+    "dailyRoutine": {
+      "morning": "farm",
+      "afternoon": "farm",
+      "evening": "storage",
+      "night": "home"
+    },
+    "favoriteItems": ["vegetables", "seeds"],
+    "questHook": "Saving the Harvest",
+    "description": "Jabari works tirelessly to ensure the village has enough food. He dreams of improving crop yields."
+  },
+  {
+    "id": "villager_4",
+    "name": "Zuri",
+    "role": "Storyteller",
+    "age": 51,
+    "personality": ["creative", "wise", "charismatic"],
+    "relationship": 50,
+    "status": "healthy",
+    "position": { "x": 650, "y": 550 },
+    "skills": ["storytelling", "cultural_knowledge"],
+    "dailyRoutine": {
+      "morning": "home",
+      "afternoon": "villageCenter",
+      "evening": "villageCenter",
+      "night": "home"
+    },
+    "favoriteItems": ["artifacts", "scrolls"],
+    "questHook": "Lost Tales of the Island",
+    "description": "Zuri preserves the village's oral traditions. Her stories connect the present with the past."
+  }
+]
